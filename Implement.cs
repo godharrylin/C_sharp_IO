@@ -111,14 +111,5 @@ namespace ParsingTool
 
 			}
 		}
-
-		private void myProcess_Exited(object sender, EventArgs e)
-		{
-			Console.WriteLine(
-				$"Exit time    : {process.ExitTime}\n" +
-				$"Exit code    : {process.ExitCode}\n" +
-				$"Elapsed time : {Math.Round((process.ExitTime - process.StartTime).TotalMilliseconds)}");
-			eventHandled.TrySetResult(true);
-		}
 	}
 }

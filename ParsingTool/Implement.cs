@@ -23,7 +23,15 @@ namespace ParsingTool
 			foreach (string file in files)
 			{
 				string targetPath = Path.Combine(targetDir, Path.GetFileName(file));
-				File.Move(file, targetPath);
+				try
+				{
+					File.Move(file, targetPath);
+				}
+				catch (Exception e)
+				{
+					Console.WriteLine($"{e}, when move {sourceDir}");
+				}
+
 				Debug.WriteLine($"已移動檔案: {file} -> {targetDir}");
 			}
 		}
@@ -63,7 +71,22 @@ namespace ParsingTool
 			foreach (var file in files)
 			{
 				string targetPath = Path.Combine(targetDir, Path.GetFileName(file));
-				File.Move(file, targetPath);
+
+				//	確保目錄存在
+				string destinationDirectory = Path.GetDirectoryName(targetPath);
+				if (!Directory.Exists(destinationDirectory))
+				{
+					Directory.CreateDirectory(destinationDirectory);
+				}
+
+				try
+				{
+					File.Move(file, targetPath);
+				}
+				catch(Exception e)
+				{
+					Console.WriteLine($"{e}, in function MoveAllFiles");
+				}
 				Debug.WriteLine($"已移動檔案: {file} -> {targetPath}");
 			}
 		}
@@ -72,7 +95,6 @@ namespace ParsingTool
 	public class JavaExecuter : IJavaExecuter
 	{
 		private Process process;
-		private TaskCompletionSource<bool> eventHandled;
 		public void RunJavaExecutable(string javaExecutable)
 		{
 			if (!File.Exists(javaExecutable))

@@ -13,17 +13,17 @@ namespace ParsingTool
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("請輸入 Source Dir 路徑：");
-			string sourceDirectory = Console.ReadLine();
+			//Console.WriteLine("請輸入 Source Dir 路徑：");
+			//string sourceDirectory = Console.ReadLine().Trim('"');
 
-			Console.WriteLine("請輸入 Java 執行檔路徑：");
-			string javaExecutable = Console.ReadLine();
+			//Console.WriteLine("請輸入 Java 執行檔 Dir 路徑：");
+			//string javaExecutable = Console.ReadLine().Trim('"');
 
-			Console.WriteLine("請輸入 Output Dir 路徑：");
-			string outputDirectory = Console.ReadLine();
+			//Console.WriteLine("請輸入 Output Dir 路徑：");
+			//string outputDirectory = Console.ReadLine().Trim('"');
 
-			try
-			{
+			//try
+			//{
 				// 建立依賴
 				IFileService fileService = new FilesService();
 				IJavaExecuter javaExecutor = new JavaExecuter();
@@ -31,14 +31,20 @@ namespace ParsingTool
 
 				// 啟動處理程序
 				var fileProcessor = new FileProcessor(fileService, javaExecutor, directoryService);
-				fileProcessor.ProcessFiles(sourceDirectory, javaExecutable, outputDirectory);
+				//fileProcessor.Setting(sourceDirectory, javaExecutable, outputDirectory);
+				fileProcessor.Setting();
+				fileProcessor.Start();
+				//fileProcessor.FindAllFolder(sourceDirectory);
+				//fileProcessor.Setting(sourceDirectory, javaExecutable, outputDirectory);
+				//fileProcessor.TraverseSrcDirAndCreateTarDir(sourceDirectory,0);
+				//fileProcessor.ProcessFiles(sourceDirectory, javaExecutable, outputDirectory);
 
-				Console.WriteLine("所有資料處理完成。");
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine($"執行過程中發生錯誤: {ex.Message}");
-			}
+				//Console.WriteLine("所有資料處理完成。");
+			//}
+			//catch (Exception ex)
+			//{
+			//	Console.WriteLine($"執行過程中發生錯誤: {ex.Message}");
+			//}
 
 
 

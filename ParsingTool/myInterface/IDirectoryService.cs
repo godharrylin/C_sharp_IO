@@ -10,5 +10,6 @@ namespace ParsingTool.myInterface
 	{
 		void DeleteUnmatchFiles(string directory, string regexPattern);
 		void MoveAllFiles(string sourceDir, string targetDir);
+		
 	}
 }

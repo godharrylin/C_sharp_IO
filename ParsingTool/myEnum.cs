@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ParsingTool.myInterface
+namespace ParsingTool
 {
-	interface IJavaExecuter
+	enum PARSING_TYPE
 	{
-		void RunJavaExecutable(string javaExecutable);
+		PARAMETERS,
+		EVENT,
+		NONE
 	}
 }

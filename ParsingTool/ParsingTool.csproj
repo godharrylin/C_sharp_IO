@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DirInfo.cs" />
     <Compile Include="FileProcessor.cs" />
     <Compile Include="Implement.cs" />
+    <Compile Include="myEnum.cs" />
     <Compile Include="myInterface\IDirectoryService.cs" />
     <Compile Include="myInterface\IFileService.cs" />
     <Compile Include="myInterface\IJavaExecuter.cs" />
